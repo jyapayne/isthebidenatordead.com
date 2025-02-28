@@ -7,7 +7,13 @@ body, html {
     align-items: center;
     font-family: Arial, sans-serif;
     /* Use a gradient to represent the USA flag colors */
-    background: linear-gradient(180deg, #3C3B6E 33%, #FFFFFF 33%, #FFFFFF 66%, #B22234 66%);
+    background: linear-gradient(180deg, #B22234 20%, #FFFFFF 20%, #FFFFFF 40%, #B22234 40%, #B22234 60%, #FFFFFF 60%, #FFFFFF 80%, #B22234 80%);
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+}
+body {
+    width: 100%;
 }
 
 .container {
@@ -18,6 +24,7 @@ body, html {
     /* Add a slight shadow to make the text stand out */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     position: relative;
+    z-index: 1;
 }
 
 h1 {
@@ -68,6 +75,7 @@ footer {
     text-align: center;
     color: black;
     font-size: 1rem;
+    z-index: 1;
 }
 
 #mini-photos-container {
@@ -99,4 +107,30 @@ footer {
 
 .bounce {
     animation-name: bounce;
+}
+
+/* Add stars to the background */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%; /* Adjust width to cover the desired area */
+    height: 40%; /* Adjust height to cover the upper left corner */
+    background-color: #3C3B6E;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%; /* Match the width of the blue background */
+    height: 40%; /* Match the height of the blue background */
+    background-image: radial-gradient(circle, #FFFFFF 10%, transparent 11%), radial-gradient(circle, #FFFFFF 10%, transparent 11%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    opacity: 0.8;
+    z-index: 1;
 }
